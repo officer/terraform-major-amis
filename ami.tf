@@ -1,7 +1,12 @@
+variable "region" {
+  default = "eu-west-1"
+}
+
+
 provider "aws" {
   # ... other configuration ...
   version = "~> 2.0"
-  region  = "eu-west-1"
+  region  = "${var.region}"
 }
 
 # AMIs
