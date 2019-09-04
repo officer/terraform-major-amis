@@ -55,10 +55,25 @@ data "aws_ami" "Redhat8" {
   } 
 }
 
+data "aws_ami" "RedHat73" {
+  owners = ["309956199498"]
+  most_recent = true
+  filter {
+      name = "name"
+      values = ["RHEL-7.3_HVM-*-x86_64-4-Hourly2-GP2"]
+  } 
+}
+
+
 
 output "rhel8" {
   value = "${data.aws_ami.Redhat8.id}"
 }
+
+output "rhel73" {
+  value = "${data.aws_ami.RedHat73.id}"
+}
+
 
 output "amazonlinux" {
   value = "${data.aws_ami.amaoznlinux.id}"
