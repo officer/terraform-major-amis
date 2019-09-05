@@ -55,6 +55,15 @@ data "aws_ami" "Redhat8" {
   } 
 }
 
+data "aws_ami" "RedHat76" {
+  owners = ["309956199498"]
+  most_recent = true
+  filter {
+      name = "name"
+      values = ["RHEL-7.6_HVM-*-x86_64-4-Hourly2-GP2"]
+  } 
+}
+
 data "aws_ami" "RedHat73" {
   owners = ["309956199498"]
   most_recent = true
@@ -64,15 +73,18 @@ data "aws_ami" "RedHat73" {
   } 
 }
 
-
-
 output "rhel8" {
   value = "${data.aws_ami.Redhat8.id}"
+}
+
+output "rhel76" {
+  value = "${data.aws_ami.RedHat76.id}"
 }
 
 output "rhel73" {
   value = "${data.aws_ami.RedHat73.id}"
 }
+
 
 
 output "amazonlinux" {
