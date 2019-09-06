@@ -60,7 +60,7 @@ data "aws_ami" "RedHat76" {
   most_recent = true
   filter {
       name = "name"
-      values = ["RHEL-7.6_HVM-*-x86_64-4-Hourly2-GP2"]
+      values = ["RHEL-7.6_HVM-*-x86_64-*-Hourly2-GP2"]
   } 
 }
 
